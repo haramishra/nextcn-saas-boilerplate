@@ -12,7 +12,8 @@
     "typecheck": "tsc --noEmit",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
-    "prepare": "husky install"
+    "prepare": "husky install", 
+    "commit": "cz"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
@@ -36,6 +37,7 @@
     "@types/react-dom": "^18.2.6",
     "@typescript-eslint/parser": "^5.61.0",
     "autoprefixer": "^10.4.14",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.44.0",
     "eslint-config-next": "13.0.0",
     "eslint-config-prettier": "^8.8.0",
@@ -51,7 +53,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "@commitlint/cz-commitlint"
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }

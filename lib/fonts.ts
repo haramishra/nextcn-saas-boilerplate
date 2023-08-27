@@ -1,4 +1,4 @@
-import { JetBrains_Mono as FontMono, Inter as FontSans } from "next/font/google"
+import { Space_Mono as FontMono, Figtree as FontSans } from "next/font/google"
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -6,6 +6,8 @@ export const fontSans = FontSans({
 })
 
 export const fontMono = FontMono({
+  weight: ["400"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
-  variable: "--font-mono",
+  display: "swap",
 })

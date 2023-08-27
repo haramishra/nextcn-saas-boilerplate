@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm typecheck   
+npm run typecheck   
 
-npm format:check
+npm run format:check
 
-npm lint
+npm run lint

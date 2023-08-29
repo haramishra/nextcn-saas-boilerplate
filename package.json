@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
-    "prepare": "husky install", 
+    "prepare": "husky install",
     "commit": "cz"
   },
   "dependencies": {
@@ -32,6 +32,7 @@
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
     "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
+    "@playwright/test": "^1.37.1",
     "@types/node": "^17.0.45",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",

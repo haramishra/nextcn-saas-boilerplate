@@ -1,9 +1,34 @@
+"use client"
+
+import { useEffect } from "react"
 import Link from "next/link"
+import { Product, useProduct } from "@/store/productStore"
+import useSWR from "swr"
 
 import { siteConfig } from "@/config/site"
-import { buttonVariants } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 
 export default function IndexPage() {
+  const product = useProduct((s) => s.product)
+  const setProduct = useProduct((s) => s.setProduct)
+
+  const productFetcher = (url: string) => fetch(url).then((r) => r.json())
+
+  const { data, isLoading, error } = useSWR(
+    "https://dummyjson.com/products/1",
+    productFetcher
+  )
+
+  console.log(product)
+
+  const fetchProducts = () => {
+    data && setProduct(data)
+  }
+
+  useEffect(() => {
+    fetchProducts()
+  }, [data])
+
   return (
     <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
       <div className="flex max-w-[980px] flex-col items-start gap-2">
@@ -16,24 +41,9 @@ export default function IndexPage() {
           into your apps. Free. Open Source. And Next.js 13 Ready.
         </p>
       </div>
-      <div className="flex gap-4">
-        <Link
-          href={siteConfig.links.docs}
-          target="_blank"
-          rel="noreferrer"
-          className={buttonVariants()}
-        >
-          Documentation
-        </Link>
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          href={siteConfig.links.github}
-          className={buttonVariants({ variant: "outline" })}
-        >
-          GitHub
-        </Link>
-      </div>
+      {isLoading && <h2>Loading</h2>}
+      {error && <h2>Error</h2>}
+      {product && <h1>{product.title}</h1>}
     </section>
   )
 }

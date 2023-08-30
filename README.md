@@ -5,7 +5,7 @@ Ultimate nextjs and Shadcn/ui starter kit for production apps.
 ## Usage
 
 ```bash
-npx create-next-app -e https://github.com/shadcn/next-template
+npx create-next-app -e https://github.com/haramishra/nextcn-saas-boilerplate
 ```
 
 ## Features
